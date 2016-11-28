@@ -13,6 +13,8 @@ $ma_boucle = new WP_Query (
 		'posts_per_page' => 3
 	)
 ); // fin WP_Query 
+
+// aff_p($ma_boucle); exit;
 ?>
 <ul>
 <?php	
@@ -39,7 +41,7 @@ $boucle_cuisinier = new WP_Query (
 		'post_type' => 'cuisinier',
 		'orderby' => 'menu_order',
 		'order' => 'ASC',
-		'posts_per_page' => 2
+		'posts_per_page' => 500
 	)
 ); // fin WP_Query 
 
@@ -47,7 +49,7 @@ $boucle_cuisinier = new WP_Query (
 while($boucle_cuisinier->have_posts() ) : $boucle_cuisinier->the_post();
 ?>
 	<article <?php post_class(); ?>>
-		<h2><?php the_title(); ?>Titre</h2>
+		<h2><?php the_title(); ?></h2>
 		<div class="texte-cuisinier"><?php the_field('ap_biographie'); ?></div>
 		<a href="<?php the_permalink();?>">Lire la suite</a>
 	</article>
