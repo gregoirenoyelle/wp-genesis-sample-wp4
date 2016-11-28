@@ -114,3 +114,8 @@ function genesis_sample_comments_gravatar( $args ) {
 	return $args;
 
 }
+
+//* Fichier de fonction supplémentaires
+require_once(CHILD_DIR.'/lib-resto/include/func.back.php');
+
+
