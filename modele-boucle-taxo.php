@@ -59,8 +59,8 @@ $boucle_meta = new WP_Query (
 			array(
 				'key' => 'ap_age', // Champ ACF
 				'value'   => 60, // Valeur du champ
-				'type'    => 'numeric',
-				'compare' => '>=',
+				'type'    => 'numeric', // C'est un nombre
+				'compare' => '>=', // Valeur supérieure ou égale à 60 (voir value)
 			)
 		),
 		'posts_per_page' => 40
