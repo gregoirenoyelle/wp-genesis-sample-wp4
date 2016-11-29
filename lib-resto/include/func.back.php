@@ -21,6 +21,6 @@ genesis_register_sidebar( array(
 ) );
 genesis_register_sidebar( array(
     'id'          => 'accueil-bas',
-    'name'        => 'Accueil - Haut de page',
-    'description' => 'Partie haute de ma page d\'Accueil.',
+    'name'        => 'Accueil - Bas de page',
+    'description' => 'Partie basse de ma page d\'Accueil.',
 ) );
