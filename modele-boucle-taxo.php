@@ -8,12 +8,18 @@ $boucle_taxo = new WP_Query (
 	array(
 		'post_type' => 'cuisinier',
 		'tax_query' => array(
+			'relation' => 'OR',
 			array(
 				'taxonomy' => 'etoile',
 				'field' => 'slug',
 				'terms' => array( '1-etoile', '2-etoiles' ) 
-				)
-			),
+				),
+			array(
+				'taxonomy' => 'style',
+				'field' => 'slug',
+				'terms' => 'academique' 
+				)			
+			), // fin Tax Query
 		'orderby' => 'title',
 		'posts_per_page' => 40
 	)
