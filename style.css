@@ -710,7 +710,6 @@ th:first-child {
 	width: 31%;
 	float: left;
 	margin-right: 3%;
-	background-color: aliceblue;
 }
 
 .accueil-bas .widget:nth-of-type(3n+3) {
@@ -1423,6 +1422,7 @@ p.entry-meta {
 	margin-bottom: 40px;
 }
 
+.accueil-bas .widget,
 .sidebar .widget {
 	background-color: #fff;
 	padding: 40px;
