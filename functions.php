@@ -16,6 +16,12 @@ include_once( get_template_directory() . '/lib/init.php' );
 //* Setup Theme
 include_once( get_stylesheet_directory() . '/lib/theme-defaults.php' );
 
+// Ajout du style css pour le back
+add_action( 'init', 'ap_ajouter_styles_editeur' );
+function ap_ajouter_styles_editeur() {
+    add_editor_style( 'editor-style.css' );
+}
+
 //* Set Localization (do not remove)
 load_child_theme_textdomain( 'genesis-sample', apply_filters( 'child_theme_textdomain', get_stylesheet_directory() . '/languages', 'genesis-sample' ) );
 
