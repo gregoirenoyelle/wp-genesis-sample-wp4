@@ -18,3 +18,38 @@ if ( ! function_exists( 'get_field' ) ) {
 		wp_die( sprintf( 'Ce site ne fonctionne pas sans l\'extension <strong>Advanced Custom Fields</strong>. Merci de vous <a href="%s">connecter au site</a> pour l\'activer.', wp_login_url() ) );
 	}
 }
+
+
+/**
+ * Ajouter page d'options ACF 5
+ *
+ * @package ACF
+ */
+if( function_exists('acf_add_options_page') ) {
+	// Page principale
+	acf_add_options_page(array(
+		'page_title'    => 'Options',
+		'menu_title'    => 'Options',
+		'menu_slug'     => 'options-generales',
+		'capability'    => 'edit_posts',
+		'redirect'      => true
+	));
+  
+  // Première sous-page
+	acf_add_options_sub_page(array(
+		'page_title'    => 'Options d\'Entête',
+		'menu_title'    => 'Entête',
+		'parent_slug'   => 'options-generales',
+	));
+
+  // Première sous-page
+	acf_add_options_sub_page(array(
+		'page_title'    => 'Options de texte',
+		'menu_title'    => 'Texte',
+		'parent_slug'   => 'options-generales',
+	));
+
+}
+
+
+
