@@ -31,7 +31,7 @@ if( function_exists('acf_add_options_page') ) {
 		'page_title'    => 'Options',
 		'menu_title'    => 'Options',
 		'menu_slug'     => 'options-generales',
-		'capability'    => 'edit_posts',
+		'capability'    => 'edit_pages',
 		'redirect'      => true
 	));
   
@@ -39,6 +39,7 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 		'page_title'    => 'Options d\'Entête',
 		'menu_title'    => 'Entête',
+		'capability'    => 'edit_pages',
 		'parent_slug'   => 'options-generales',
 	));
 
@@ -46,6 +47,7 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 		'page_title'    => 'Options de Typographie',
 		'menu_title'    => 'Typographie',
+		'capability'    => 'edit_pages',
 		'parent_slug'   => 'options-generales',
 	));
 
