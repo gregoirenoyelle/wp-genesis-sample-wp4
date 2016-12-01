@@ -41,3 +41,7 @@
 .mceContentBody .wp-smiley {
     margin:0;
 }
+
+.mceContentBody:focus {
+    outline: none;
+}
