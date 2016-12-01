@@ -65,7 +65,28 @@ $img2 = wp_get_attachment_image( $image_id, $taille_image);
 			</ul>
 	</div>
 
+<?php
+
+	$output = '';
+
+	// Contrôle si le repeater a des champs
+	if( have_rows('ap_ingredients') ):
+			$output .= sprintf( '<h3>Ma recette: %s</h3>', get_field('ap_titre_de_la_recette') );
+			$output .= '<ul>';
+		// boucle sur les champs du repeater
+			while ( have_rows('ap_ingredients') ) : the_row();
+					// affichage des sous-champs
+			$output .= sprintf( '<li>%s %s</li>', get_sub_field('ap_quantite') , get_sub_field('ap_ingredient') );
+			endwhile;
+			$output .= '</ul>';
+	else :
+			// pas de champs Repeater
+			$output .= "pas de champs Repeater dans le coin !";
+
+	endif;
+
+	echo $output;
 
 
 
-<?php } //FIN de Function ap_contenu_fiche_cuisinier
+ } //FIN de Function ap_contenu_fiche_cuisinier
