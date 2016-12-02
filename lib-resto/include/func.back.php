@@ -24,3 +24,6 @@ genesis_register_sidebar( array(
     'name'        => 'Accueil - Bas de page',
     'description' => 'Partie basse de ma page d\'Accueil.',
 ) );
+
+// Ajouter un format d'image
+add_image_size( 'slick-slider', 1500, 540, TRUE );
