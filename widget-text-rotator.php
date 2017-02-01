@@ -1,14 +1,17 @@
 <?php
 // Variable pour l'affichage HTML
 $output = '';
-// Récupérer la valeur du répéteur
+// Récupérer la valeur du répéteur qui sera un tableau
 $titres = get_field('ap_textes', $acfw);
+// aff_v($titres);
+
 // Déclaration du compteur
 $i = 1;
 // Récupérer le nombre de rang dans le répéteur dans la variable $count
 $count = count($titres);
 
 $output .= '<h3 class="rotate">';
+	// Début de la boucle
 	while ( have_rows('ap_textes', $acfw) ) : the_row();
 
 		// Affichage du texte
@@ -18,10 +21,10 @@ $output .= '<h3 class="rotate">';
 		// Voir fichier /wp-content/plugins/acf-texte-rotator/lib/func.wordpress.php
 		if ($i < $count ) {
 			$output .= '*';
-		}	
-		// Augmenter la valeur de $i à chaque passage dans la boucle	
+		}
+		// Augmenter la valeur de $i à chaque passage dans la boucle
 		$i++;
-
+	// fin de la boucle
 	endwhile;
 $output .= '</h3>';
 
