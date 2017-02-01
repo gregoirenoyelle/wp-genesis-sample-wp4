@@ -1,5 +1,5 @@
 /*
-	Theme Name: Magazine Resto
+	Theme Name: Site Demo WP 4
 	Theme URI: http://www.gregoirenoyelle.com/
 	Description: Thème pour le magazine de resto
 	Author: Grégoire Noyelle
@@ -1572,7 +1572,7 @@ p.entry-meta {
 	.footer-widgets-2,
 	.footer-widgets-3,
 	.js .genesis-nav-menu .sub-menu a,
-	.js .genesis-nav-menu .sub-menu, 
+	.js .genesis-nav-menu .sub-menu,
 	.sidebar-content-sidebar .content,
 	.sidebar-content-sidebar .content-sidebar-wrap,
 	.sidebar-primary,
@@ -1633,7 +1633,7 @@ p.entry-meta {
 		text-align: center;
 		visibility: visible;
 	}
-	
+
 	.sub-menu-toggle:hover,
 	.sub-menu-toggle:focus {
 		border-width: 0;
