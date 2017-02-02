@@ -1,7 +1,8 @@
 <?php
-// Variable pour l'affichage HTML
+// Variable vide pour l'affichage le HTML à la fin
 $output = '';
 // Récupérer la valeur du répéteur qui sera un tableau
+// Elle me servira pour compter les éléments
 $titres = get_field('ap_textes', $acfw);
 // aff_v($titres);
 
