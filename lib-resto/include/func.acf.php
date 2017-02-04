@@ -118,6 +118,6 @@ function ap_fitre_interface() {
 
 //* Réglage ACF widget
 // http://acfwidgets.com/support/topic/not-working-in-customizer/
-remove_action('init', 'acfw_remove_fields');
+// remove_action('init', 'acfw_remove_fields');
 
 
