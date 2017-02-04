@@ -12,20 +12,20 @@ $ma_boucle = new WP_Query (
 		'order' => 'ASC',
 		'posts_per_page' => 3
 	)
-); // fin WP_Query 
+); // fin WP_Query
 
 // aff_p($ma_boucle); exit;
 ?>
 <ul>
-<?php	
+<?php
 // début loop $ma_boucle
 while ( $ma_boucle->have_posts() ) : $ma_boucle->the_post(); ?>
-	
+
 	<!-- les éléments de la boucle se trouvent ici -->
 	<li><a href="<?php the_permalink();?>"><?php the_title(); ?></a> (article par <?php the_author(); ?>)</li>
 <?php endwhile;
 wp_reset_postdata();
-// fin loop $ma_boucle	
+// fin loop $ma_boucle
 ?>
 </ul>
 
@@ -43,17 +43,17 @@ $boucle_cuisinier = new WP_Query (
 		'order' => 'ASC',
 		'posts_per_page' => 500
 	)
-); // fin WP_Query 
+); // fin WP_Query
 
 // début loop $boucle_cuisinier
 while($boucle_cuisinier->have_posts() ) : $boucle_cuisinier->the_post();
 ?>
 	<article <?php post_class(); ?>>
 		<h2><?php the_title(); ?></h2>
-		<div class="texte-cuisinier"><?php the_field('ap_biographie'); ?></div>
+		<div class="texte-cuisinier"><?php the_field('gob_biographie'); ?></div>
 		<a href="<?php the_permalink();?>">Lire la suite</a>
 	</article>
-<?php 
+<?php
 endwhile; wp_reset_postdata();
 
 } // Fin de la fonction Boucle cuisinier
