@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
 @import url( 'style.css' );
 
 .mceContentBody {
@@ -5,7 +6,7 @@
 }
 /* ajustement depuis WordPress 4 */
 .mceContentBody.wp-autoresize {
-    padding: 10px !important;
+    padding: 20px !important;
     width: 100%;
 }
 .mceContentBody ul {
