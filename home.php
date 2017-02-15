@@ -36,7 +36,7 @@ function ap_accueil_haut() {
 
 }
 
-// Accueil haut
+// Accueil bas
 function ap_accueil_bas() {
 	genesis_widget_area( 'accueil-bas', array(
 		'before' => '<div class="accueil-bas widget-area"><div class="wrap">',
