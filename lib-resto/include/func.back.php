@@ -27,3 +27,27 @@ genesis_register_sidebar( array(
 
 // Ajouter un format d'image
 add_image_size( 'slick-slider', 1500, 540, TRUE );
+
+
+//* Ajouter le support de page pour les articles
+add_post_type_support( 'post', 'page-attributes' );
+
+//* Changer ordre d'affichage dans les pages d'archives des articles
+add_action( 'pre_get_posts', 'gn_post_archive_order' );
+function gn_post_archive_order( $query ) {
+	if ( $query->is_main_query() && !is_admin() && $query->is_category() || $query->is_tag() ) {
+		$query->set( 'orderby', 'menu_order' );
+		$query->set('order','ASC');
+	}
+}
+
+
+// Retirer le menu Widgets
+// A mettre dans votre fichier functions.php
+// sans les balises PHP
+add_action( 'admin_menu', 'gn_remove_submenus', 999     );
+function gn_remove_submenus() {
+	if ( !current_user_can('manage_options' ) ) {
+	    remove_submenu_page( 'themes.php', 'widgets.php' );
+	}
+}
