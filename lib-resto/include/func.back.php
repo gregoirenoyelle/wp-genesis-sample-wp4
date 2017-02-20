@@ -51,3 +51,12 @@ function gn_remove_submenus() {
 	    remove_submenu_page( 'themes.php', 'widgets.php' );
 	}
 }
+
+// Chercher le bon hook pour faire la condition
+// add_action('template_redirect', 'resto_filtre_back');
+function resto_filtre_back() {
+	if ( is_page_template('modele-flexible-recette.php' ) ) {
+		/** Enlever les options de maquette dans chaque contenu */
+		remove_theme_support( 'genesis-inpost-layouts' );
+	}
+}
