@@ -25,14 +25,15 @@ $output = "";
 			elseif( get_row_layout() == 'recet_visuel' ):
 				// ACF sub_fields
 				$image_id = get_sub_field('recet_image');
+				$image_url =  wp_get_attachment_url( $image_id );
 				$taille = get_sub_field('recet_taille_de_limage');
 				$img = wp_get_attachment_image( $image_id, $taille );
 
-				$output .= sprintf( '<div class="visuel">%s</div>', $img );
+				$output .= sprintf( '<div class="visuel"><a href="%s">%s</a></div>', $image_url, $img );
 
 			elseif( get_row_layout() == 'recet_liste_ingredients' ):	
 				// ACF sub_fields
-				if ( have_rows('recet_ingredients') ) : 
+				if ( have_rows('recet_ingredients') ) :  
 					$output .= '<ul class="ingredients">';
 					while ( have_rows('recet_ingredients') ) : the_row();
 						$output .= sprintf('<li>%s</li>', get_sub_field( 'recet_ingredient') );
