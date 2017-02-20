@@ -46,3 +46,24 @@ if( function_exists('acf_add_options_page') ) {
 	));
 } 
 
+// Styles ACF dans le header
+add_action( 'wp_head', 'resto_css_header', 1000 );
+function resto_css_header() {
+// Variable ACF
+$font_size = get_field('option_taille_titre', 'option');
+$color = get_field('option_couleur_titre', 'option');
+$font_size_replace = str_replace(',', '.', $font_size);
+?>
+	<style type="text/css">
+		.site-title {
+			font-size: <?php echo $font_size_replace; ?>rem;
+		}
+		.site-title a {
+			color: <?php echo $color; ?>;
+		}
+	</style>
+
+<?php } // FIN function resto_css_header() 
+
+
+
