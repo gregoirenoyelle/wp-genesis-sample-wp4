@@ -1,8 +1,8 @@
 <?php
 // Variables en dehors de la boucle
-$output = "";
+$output = '';
 $images = get_field('w_slick_visuels', $acfw);
-// aff_p($images);
+aff_p($images);
 
 // Si pas d'image, le script s'arrête
 if ( ! $images ) {
@@ -16,10 +16,10 @@ $output .= '<div class="widget-slider-slick">';
 	// Début de la boucle
 	foreach ( $images as $image ) :
 		// Variable dans la boucle
-		$id = $image['id'];
-		$url = $image['sizes']['slick-slider']; 
-		$width = $image['sizes']['slick-slider-width'];
-		$height = $image['sizes']['slick-slider-height'];
+		$id = $image['ID'];
+		$taille = 'slick-slider';
+		$img = wp_get_attachment_image( $id, $taille );
+
 		// Récupérer le champ ACF ajouté dans les médias
 		/*
 			Je dois spécifier l'ID du contenu car ce champ ACF média
@@ -28,15 +28,22 @@ $output .= '<div class="widget-slider-slick">';
 		$titre = get_field('med_titre_image', $id);
 		$color = get_field('med_couleur_titre', $id);
 		$lien = get_field('med_lien_image', $id);
+		$target = get_field('med_ouvrir_nouvel_onglet', $id);
+		if ( $target ) {
+			$target = ' target="_blank"';
+		} else {
+			$target = '';
+		}
+
+		// Affichage de l'image dans la boucle
 		$output .= '<div class="visuel">';
-			// Condition si un lien existes
+			// Condition si un lien existe 
 			if ( $lien ) {
-				$output .= sprintf('<a href="%s">', $lien);
+				$output .= sprintf('<a href="%s"%s>%s</a>', $lien, $target, $img);
+			} else {				
+				$output .= $img;
 			}
-				$output .= sprintf('<img src="%s" width="%s" height="%s">', $url, $width, $height );
-			if ( $lien ) {
-				$output .= '</a>';
-			}
+			
 			if ( $titre ) {
 				$output .= sprintf( '<h2 class="titre-slider" style="color:%s;">%s</h2>', $color, $titre );
 			}
