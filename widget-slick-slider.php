@@ -2,7 +2,7 @@
 // Variables en dehors de la boucle
 $output = '';
 $images = get_field('w_slick_visuels', $acfw);
-aff_p($images);
+// aff_p($images);
 
 // Si pas d'image, le script s'arrête
 if ( ! $images ) {
