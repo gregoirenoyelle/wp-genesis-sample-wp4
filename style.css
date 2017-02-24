@@ -647,6 +647,37 @@ th:first-child {
 	float: right;
 }
 
+/* Page Flexible Atelier */
+
+.editeur-1 .editeur {
+	clear: left;
+}
+
+.editeur-2 .editeur,
+.editeur-3 .editeur {
+	float: left;
+	margin-right: 5%;
+}
+
+.editeur-2 .editeur {
+	width: 45%;
+}
+
+.editeur-3 .editeur {
+	width: 30%;
+}
+
+.editeur-2 .editeur:nth-of-type(2n+1),
+.editeur-3 .editeur:nth-of-type(3n+1) {
+	clear: left;
+}
+
+.editeur-2 .editeur:nth-of-type(2n+2),
+.editeur-3 .editeur:nth-of-type(3n+3) {
+	margin-right: 0;
+}
+
+
 /* ## Column Classes
 --------------------------------------------- */
 /* Link: http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css */
