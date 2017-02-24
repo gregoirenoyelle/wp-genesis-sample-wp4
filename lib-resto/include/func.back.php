@@ -52,11 +52,13 @@ function gn_remove_submenus() {
 	}
 }
 
-// Chercher le bon hook pour faire la condition
-// add_action('template_redirect', 'resto_filtre_back');
-function resto_filtre_back() {
-	if ( is_page_template('modele-flexible-recette.php' ) ) {
-		/** Enlever les options de maquette dans chaque contenu */
+/* Retirer les options de maquette dans un modèle de page */
+add_action( 'init', 'custom_remove_custom_layouts' );
+function custom_remove_custom_layouts() {
+	$template_file = get_post_meta( $_GET['post'], '_wp_page_template', true );
+	// aff_v($template_file); exit;
+	if ( $template_file == 'modele-flexible-recette.php' ) {
 		remove_theme_support( 'genesis-inpost-layouts' );
 	}
 }
+
