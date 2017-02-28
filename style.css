@@ -1289,6 +1289,24 @@ img.alignright,
 	color: #eee;
 }
 
+/* Archive cuisinier */
+
+.post-type-archive-cuisinier .entry {
+	width: 48%;
+	float: left;
+	margin-right: 4%;
+	padding: 34px;
+}
+
+.post-type-archive-cuisinier .entry:nth-of-type(2n+1) {
+	clear: left;
+}
+
+.post-type-archive-cuisinier .entry:nth-of-type(2n+2) {
+	margin-right: 0;
+}
+
+
 /* ## Entry Meta
 --------------------------------------------- */
 
@@ -1807,6 +1825,13 @@ p.entry-meta {
 	.two-thirds {
 		margin: 0;
 		width: 100%;
+	}
+
+	.post-type-archive-cuisinier .entry {
+		width: 100%;
+		float: none;
+		margin-right: 0;
+		padding: 56px;
 	}
 
 	.accueil-bas .widget {
