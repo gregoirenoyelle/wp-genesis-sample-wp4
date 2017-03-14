@@ -1,29 +1,36 @@
-<?php 
+<?php
 // Widget pour slick slider voir fichier
 // /wp-content/plugins/wp-slick-slider/gnoyelle-sup-theme.php
 
-// Champ principal pour la galerie. Cela retourne un tableau
+// Variable pour afficher le HTML
+$output = '';
+
+// Champ ACF principal pour la galerie. Cela retourne un tableau
 // Attention à bien mettre le paramètre $acfw à la fin
 $images = get_field('ap_images', $acfw);
 // aff_v($images); exit;
 
-// Condition sur la galerie est active
-if( $images ): ?>
+// Condition sur la galerie est active. Sinon le script s'arrête.
+if( ! $images ) {
+    return;
+}
 
-<!-- Div avec la classe Utilisée dans Slick Slider déclarée dans l'extension wp-slick-slider-->
-<div class="slider-slick">
-    <?php 
+//  Div avec la classe Utilisée dans Slick Slider déclarée dans l'extension wp-slick-slider
+$output .= '<div class="slider-slick">';
+
     // Début de la boucle sur le tableau retourné par $images
-    foreach( $images as $image ): 
-      
-        // Variables pour récupérer les champs d'image ajouté avec ACF
-        // Comme je suis en dehors de la boucle, je dois mettre l'ID de chaque image
-        // qui est disponible dans le tableau la clé ID
-        
-        // Champ URL dans ACF Pro
-        $lien = get_field('ap_adresse_sur_limage', $image['ID']);
-        // Champ Vrai Faux dans ACF Pro
-        $target = get_field('ap_ouvrir_lien_dans_un_nouvel_onglet', $image['ID']);
+    foreach( $images as $image ):
+
+        //* Variables dans la boucle
+        // ID de l'image
+        $id = $image['ID'];
+        // Fonction WP pour afficher l'image
+        $img = wp_get_attachment_image( $id, 'slick-slider' );
+        // Champ ACF de l'image pour l'URL. Attention l'ID est obligatoire
+        $lien = get_field('ap_adresse_sur_limage', $id);
+        // Champ Vrai Faux dans ACF Pro. Attention l'ID est obligatoire
+        $target = get_field('ap_ouvrir_lien_dans_un_nouvel_onglet', $id);
+
         // Valeur de la variable si la condition est vraie. La case est cochée
         if ( $target ) {
         	$target = ' target="_blank"';
@@ -31,31 +38,21 @@ if( $images ): ?>
         	$target = '';
         }
 
-    ?>
-        
-		<div class="visuel">
-			<?php 
-			    // Condition si j'ai un lien
-			    // L'image est clickable
-			    if ( $lien ) { 
-					printf('<a href="%s"%s>', $lien, $target );
-				} 
-				
-				// Affichage de l'image avec les données du tableau
-			?>
-			<img src="<?php echo $image['sizes']['slick-slider']; ?>" width="<?php echo $image['sizes']['slick-slider-width']; ?>" height="<?php echo $image['sizes']['slick-slider-height']; ?>">
+        // Affichage du visuel avec les options
+        $output .= '<div class="visuel">';
+            if ( $lien ) {
+                // Version avec un lien
+                $output .= sprintf('<a href="%s"%s>%s</a>', $lien, $target, $img);
+            } else {
+                // Version sans lien
+                $output .= $img;
+            }
 
-			<?php if ( $lien ) {
-				echo '</a>';
-				} 
-			?>
-		</div> 
-    <?php 
-        // Fin de la boucle sur le tableau $images
-        endforeach; 
-     ?>
-</div>
-<?php 
-    // Fin de la condition si la galerie existe
-    endif; 
-?>
+        $output .= '</div>';
+
+        // Fin de la boucle
+    endforeach;
+
+$output .= '</div><!-- FIN div.slider-slick -->';
+
+echo $output;
