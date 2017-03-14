@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Toutes les fonctions pour gérer le back-office
 
 //** Enlever toutes les barres latérales de gauche
@@ -8,7 +8,7 @@ genesis_unregister_layout( 'sidebar-content' );
 
 //* Unregister sidebar/sidebar/content layout setting
 genesis_unregister_layout( 'sidebar-sidebar-content' );
- 
+
 //* Unregister sidebar/content/sidebar layout setting
 genesis_unregister_layout( 'sidebar-content-sidebar' );
 
@@ -55,6 +55,9 @@ function gn_remove_submenus() {
 /* Retirer les options de maquette dans un modèle de page */
 add_action( 'init', 'custom_remove_custom_layouts' );
 function custom_remove_custom_layouts() {
+	if ( ! isset( $_GET['post'] ) ) {
+		return;
+	}
 	$template_file = get_post_meta( $_GET['post'], '_wp_page_template', true );
 	// aff_v($template_file); exit;
 	if ( $template_file == 'modele-flexible-recette.php' ) {
