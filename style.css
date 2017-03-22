@@ -1289,6 +1289,39 @@ img.alignright,
 	color: #eee;
 }
 
+/* Grille d'Article version Flex */
+
+.category .content {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    border: 2px solid #6a6a6a
+}
+
+.category .entry {
+	padding: 5%;
+    flex: 0 1 calc(33% - 2%);
+}
+
+.archive-pagination {
+    flex-basis: 100%;
+}
+
+@media screen and ( max-width:800px ) {
+	.category .entry {
+		flex: 0 1 calc(50% - 2%);
+	}
+}
+
+@media screen and ( max-width:500px ) {
+	.category .content {
+		flex-direction: column;
+	}
+}
+
+
+/* Grille d'Article version Grid */
+
 /* Archive cuisinier */
 
 .post-type-archive-cuisinier .entry {
