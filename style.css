@@ -1289,6 +1289,20 @@ img.alignright,
 	color: #eee;
 }
 
+
+/* Grille Grid layout */
+
+@supports (display: grid) {
+
+	.archive .content {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+		grid-gap: 3rem;
+	}	
+
+}
+
+
 /* Archive cuisinier */
 
 .post-type-archive-cuisinier .entry {
