@@ -1304,12 +1304,17 @@ img.alignright,
 }
 
 .archive-pagination,
-.archive .breadcrumb {
+.archive .breadcrumb, 
+.archive .archive-description {
     flex-basis: 100%;
 }
 
 .archive .breadcrumb {
 	margin-bottom: 20px;
+}
+
+.archive .archive-description {
+	padding: 20px;
 }
 
 @media screen and ( max-width:800px ) {
