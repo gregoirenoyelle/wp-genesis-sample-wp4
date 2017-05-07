@@ -1303,8 +1303,13 @@ img.alignright,
     flex: 0 1 calc(33% - 2%);
 }
 
-.archive-pagination {
+.archive-pagination,
+.archive .breadcrumb {
     flex-basis: 100%;
+}
+
+.archive .breadcrumb {
+	margin-bottom: 20px;
 }
 
 @media screen and ( max-width:800px ) {
