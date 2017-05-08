@@ -1355,6 +1355,30 @@ img.alignright,
 		grid-area: footer;
 	}
 
+	/* Contenu principal */
+	.content-sidebar-wrap {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: auto;
+		grid-gap: 2rem;
+		grid-template-areas:
+		"content content content sidebar"
+	}
+
+	.content, .sidebar {
+		width: initial;
+	}
+
+	.content {
+		grid-area: content;
+		/* Le contenu prends toute la hauteur */
+		display: grid;
+	}
+
+	.sidebar {
+		grid-area: sidebar;
+	}
+
 
 	/* Archive des articles */
 	.archive .content {
