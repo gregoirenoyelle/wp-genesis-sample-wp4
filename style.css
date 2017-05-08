@@ -1325,7 +1325,38 @@ img.alignright,
 /* Grid layout */
 
 @supports (display: grid) {
+	
+	/* Mise en page globale */
 
+	.site-container {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"header header header header"
+		"nav nav nav nav"
+		"main main main main"
+		"footer footer footer footer";
+	}
+	
+	.site-header {
+		grid-area: header;
+	}
+
+	.nav-primary {
+		grid-area: nav;
+	}
+
+	.site-inner {
+		grid-area: main;
+	}
+
+	.site-footer {
+		grid-area: footer;
+	}
+
+
+	/* Archive des articles */
 	.archive .content {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
@@ -1374,7 +1405,7 @@ img.alignright,
 		.archive .pagination {
 			grid-column: 2 / 3;
 		}
-		
+
 		.archive .post-29 {
 			grid-column: initial;
 		}
