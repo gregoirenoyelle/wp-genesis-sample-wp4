@@ -1920,6 +1920,11 @@ p.entry-meta {
 		grid-template-rows: auto;
 		grid-gap: 2rem;
 		grid-template-areas:
+		"content content content content"
+	}
+
+	.content-sidebar .content-sidebar-wrap {
+		grid-template-areas: 
 		"content content content sidebar"
 	}
 
@@ -1931,6 +1936,10 @@ p.entry-meta {
 		grid-area: content;
 		/* Le contenu prends toute la hauteur */
 		display: grid;
+	}
+
+	.home .content {
+		display: initial;
 	}
 
 	.sidebar {
@@ -1962,7 +1971,7 @@ p.entry-meta {
 		}
 	}
 
-	/* Archive des articles */
+	/* Page des archives */
 	.archive .content {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
