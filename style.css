@@ -1329,6 +1329,7 @@ img.alignright,
 	.archive .content {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
 		grid-gap: 2rem;
 	}
 
@@ -1350,6 +1351,10 @@ img.alignright,
 		margin: 0;
 	}
 
+	.archive .post-29 {
+		grid-column: 1 / 4;
+	}
+
 	@media screen and (max-width: 900px) {
 
 		.archive .content {
@@ -1369,6 +1374,11 @@ img.alignright,
 		.archive .pagination {
 			grid-column: 2 / 3;
 		}
+		
+		.archive .post-29 {
+			grid-column: initial;
+		}
+
 	}
 
 	@media screen and (max-width: 600px) {
