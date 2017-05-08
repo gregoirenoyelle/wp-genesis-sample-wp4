@@ -1983,6 +1983,29 @@ p.entry-meta {
 		grid-column: 1 / 4;
 	}
 
+	/* Fiche cuisinier */
+
+	.archive .post-60 .entry-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 2rem;
+		grid-template-areas:
+		"photo photo"
+		"bio info";
+	}
+
+	.photo {
+		grid-area: photo;
+	}
+
+	.biographie {
+		grid-area: bio;
+	}
+
+	.info-pratique {
+		grid-area: info;
+	}
+
 	/* Media Queries avec Grid */ 
 
 	@media screen and (max-width: 1200px) {
