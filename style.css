@@ -1330,13 +1330,13 @@ img.alignright,
 
 	.site-container {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: 1fr;
 		grid-template-rows: auto;
 		grid-template-areas: 
-		"header header header header"
-		"nav nav nav nav"
-		"main main main main"
-		"footer footer footer footer";
+		"header"
+		"nav"
+		"main"
+		"footer";
 	}
 	
 	.site-header {
@@ -1344,6 +1344,10 @@ img.alignright,
 	}
 
 	.nav-primary {
+		grid-area: nav;
+	}
+
+	.menu-toggle {
 		grid-area: nav;
 	}
 
