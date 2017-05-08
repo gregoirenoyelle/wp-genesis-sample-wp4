@@ -17,55 +17,60 @@ function ap_taxo_etoile() {
 
 // Affichage du contenu ACF : Fiche cuisinier
 add_action('genesis_entry_content','ap_contenu_fiche_cuisinier');
-function ap_contenu_fiche_cuisinier () { 
+function ap_contenu_fiche_cuisinier () {
 
 //variables ACF pour l'image
 $image_id = get_field('gob_photo');
-$taille_image = 'cuisinier-2';
-$img = wp_get_attachment_image($image_id, $taille_image);
-$img2 = wp_get_attachment_image( $image_id, $taille_image);
+$img = wp_get_attachment_image($image_id, 'full');
 
 // Pour afficher tous les champs ACF disponibles
 // $acf = get_fields();
 // aff_p($acf);
 
-	?>
-	<div class="biographie">
+?>
 
 		<!--  Condition pour cliquer sur l'image quand on est pas sur la single-cuisinier et accéder à la biographie -->
-		<div class="photo">
-			<?php if( !is_singular('cuisinier')) { ?>
+	<figure class="photo">
+		<?php if( !is_singular('cuisinier')) { ?>
+
 			<a href="<?php the_permalink(); ?>">
-				<?php echo $img ?>	
+				<?php echo $img ?>
 			</a>
 
-			<?php } else { 
-				 	echo $img;
-			 	  } 
-			 ?>
-		</div>		
-		
+		<?php } else {
+			 	echo $img;
+		 	  }
+		 ?>
+	</figure>
+
+	<section class="biographie">
+
 		<h3>Biographie</h3>
 
 		<!--  Condition pour afficher ou pas la biographie -->
 		<?php if(is_singular('cuisinier' )){ ?>
+
 			<div class="texte-biographie">
 				<?php the_field('gob_biographie');?>
 			</div>
+
 		<?php } else { ?>
-	            <?php the_field('gob_biographie_extrait'); ?>
+
+	            <p><?php the_field('gob_biographie_extrait'); ?></p>
 			    <p><a href="<?php the_permalink(); ?>">Voir la biographie complète</a></p>
 		<?php }?>
 
+	</section>
 
-	<div class="info-pratique">
+
+	<section class="info-pratique">
 		<h3>Informations pratiques</h3>
 			<ul class="liste-info-pratique">
 				<li><a href="<?php the_field('gob_site');?>" target="_blank">Site internet</a></li>
 				<li><a href="mailto:<?php the_field('gob_email');?>">Envoyer un email</a></li>
 				<li><a href="<?php the_field('gob_cv');?>">Télécharger le fichier</a></li>
 			</ul>
-	</div>
+	</section>
 
 <?php
 
