@@ -1290,6 +1290,25 @@ img.alignright,
 }
 
 
+/* Archive cuisinier */
+
+.post-type-archive-cuisinier .entry {
+	width: 48%;
+	float: left;
+	margin-right: 4%;
+	padding: 34px;
+}
+
+.post-type-archive-cuisinier .entry:nth-of-type(2n+1) {
+	clear: left;
+}
+
+.post-type-archive-cuisinier .entry:nth-of-type(2n+2) {
+	margin-right: 0;
+}
+
+
+
 /* ## Grille Grid layout sur archives
 --------------------------------------------- */
 
@@ -1334,7 +1353,7 @@ img.alignright,
 	}
 
 	.archive .entry {
-		margin: 0;
+		margin: initial;
 		width: initial;
 	}
 
@@ -1348,7 +1367,7 @@ img.alignright,
 	}
 
 	.archive .archive-description {
-		margin: 0;
+		margin: initial;
 	}
 
 	.archive .post-29 {
@@ -1402,24 +1421,6 @@ img.alignright,
 		}		
 	}
 
-}
-
-
-/* Archive cuisinier */
-
-.post-type-archive-cuisinier .entry {
-	width: 48%;
-	float: left;
-	margin-right: 4%;
-	padding: 34px;
-}
-
-.post-type-archive-cuisinier .entry:nth-of-type(2n+1) {
-	clear: left;
-}
-
-.post-type-archive-cuisinier .entry:nth-of-type(2n+2) {
-	margin-right: 0;
 }
 
 
