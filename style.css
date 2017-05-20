@@ -1307,6 +1307,12 @@ img.alignright,
 	margin-right: 0;
 }
 
+.breadcrumb,
+.archive-description,
+.archive-pagination {
+	display: none;
+}
+
 
 
 /* ## Grille Grid layout sur archives
@@ -1341,14 +1347,15 @@ img.alignright,
 
 }
 
+
+
 /* Grid layout */
 
 @supports (display: grid) {
 
 	.archive .content {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: auto;
+		grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
 		grid-gap: 2rem;
 	}
 
@@ -1357,69 +1364,7 @@ img.alignright,
 		width: initial;
 	}
 
-	.archive .breadcrumb {
-		grid-column: 1 / 3
-	}
 
-	.archive .archive-description,
-	.archive .pagination {
-		grid-column: 1 / 4;
-	}
-
-	.archive .archive-description {
-		margin: initial;
-	}
-
-	.archive .post-29 {
-		grid-column: 1 / 4;
-	}
-
-	@media screen and (max-width: 900px) {
-
-		.archive .content {
-			grid-template-columns: repeat(2, 1fr);
-		}
-
-		.archive .breadcrumb {
-			grid-column: 2 / 3 ;
-			grid-row: 1;
-		}
-				
-		.archive .archive-description {
-			grid-column: 1 / 2 ;
-			grid-row: 1;
-		}	
-
-		.archive .pagination {
-			grid-column: 2 / 3;
-		}
-		
-		.archive .post-29 {
-			grid-column: initial;
-		}
-
-	}
-
-	@media screen and (max-width: 600px) {
-
-		.archive .content {
-			grid-template-columns: repeat(1, 1fr);
-		}
-
-		.archive .breadcrumb,
-		.archive .archive-description,
-		.archive .pagination {
-			grid-column: 1;
-		}
-
-		.archive .breadcrumb {
-			grid-row: 1;
-		}
-
-		.archive .archive-description {
-			grid-row: 2;
-		}		
-	}
 
 }
 
