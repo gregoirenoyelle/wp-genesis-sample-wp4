@@ -1318,58 +1318,18 @@ img.alignright,
 }
 
 
-
-/* ## Grille Grid layout sur archives
+/* ## Grille Grid Flex sur archives
 --------------------------------------------- */
 
 
-/* Grille float */
-
-.archive .entry {
-	float: left;
-	margin-right: 2%;
-	padding: 6rem 5rem;
+.archive .content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .archive .entry {
-	width: 32%;
-}
-
-.archive .entry:nth-of-type(3n+3) {
-	margin-right: initial;
-}
-
-.archive .entry:nth-of-type(3n+1) {
-	clear: left;
-}
-
-@media screen and (max-width: 900px) {
-	.archive .entry {
-		width: 100%;
-		float: none;
-	}
-
-}
-
-
-
-/* Grid layout */
-
-@supports (display: grid) {
-
-	.archive .content {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
-		grid-gap: 2rem;
-	}
-
-	.archive .entry {
-		margin: initial;
-		width: initial;
-	}
-
-
-
+	flex: 0 1 32%;
 }
 
 
