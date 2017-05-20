@@ -1313,6 +1313,10 @@ img.alignright,
 	display: none;
 }
 
+.content {
+	border: 2px solid #888;
+}
+
 
 
 /* ## Grille Grid layout sur archives
